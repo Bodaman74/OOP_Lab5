@@ -1,3 +1,9 @@
+package student.managment;
+
+
+import javax.swing.JOptionPane;
+import student.managment.User;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,8 +18,11 @@ public class LoginScreen extends javax.swing.JFrame {
     /**
      * Creates new form LoginScreen
      */
-    public LoginScreen() {
-        initComponents();
+    
+    private  User User;
+    public LoginScreen(User user) {
+        this.User =user;
+        
     }
 
     /**
@@ -32,6 +41,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jpassword = new javax.swing.JPasswordField();
         blogin = new javax.swing.JButton();
         bexit = new javax.swing.JButton();
+        jshowpassword = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,12 +69,25 @@ public class LoginScreen extends javax.swing.JFrame {
 
         blogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         blogin.setText("Login");
+        blogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bloginActionPerformed(evt);
+            }
+        });
 
         bexit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bexit.setText("Exit");
         bexit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bexitActionPerformed(evt);
+            }
+        });
+
+        jshowpassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jshowpassword.setText("show password");
+        jshowpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jshowpasswordActionPerformed(evt);
             }
         });
 
@@ -91,9 +114,12 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addContainerGap(90, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bexit)
-                .addGap(18, 18, 18)
-                .addComponent(blogin)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jshowpassword)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bexit)
+                        .addGap(18, 18, 18)
+                        .addComponent(blogin)))
                 .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
@@ -109,7 +135,9 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jshowpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(blogin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,6 +150,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
     private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_bexitActionPerformed
 
     private void jusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jusernameActionPerformed
@@ -132,6 +161,22 @@ public class LoginScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jpasswordActionPerformed
 
+    private void jshowpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jshowpasswordActionPerformed
+        // TODO add your handling code here:
+        if(jshowpassword.isSelected())
+            jpassword.setEchoChar((char)0);
+        else jpassword.setEchoChar('*');
+        
+    }//GEN-LAST:event_jshowpasswordActionPerformed
+
+    private void bloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloginActionPerformed
+        // TODO add your handling code here:
+        if(jusername.getText().equals(""))
+            JOptionPane.showMessageDialog(null,"Please fill out username");
+        else if(jpassword.getText().equals(""))
+            JOptionPane.showMessageDialog(null,"Please fill out password");
+    }//GEN-LAST:event_bloginActionPerformed
+   
     /**
      * @param args the command line arguments
      */
@@ -174,6 +219,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jpassword;
+    private javax.swing.JCheckBox jshowpassword;
     private javax.swing.JTextField jusername;
     // End of variables declaration//GEN-END:variables
 }
