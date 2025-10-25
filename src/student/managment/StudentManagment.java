@@ -15,9 +15,15 @@ public class StudentManagment {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        User U1 =new User("admin","1234abc");
-        LoginScreen l1 =new  LoginScreen(U1);
-        User U2 =new User("user","123456789");
+       User U1 =new User("admin","1234abc");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+ 
+               LoginScreen login = new LoginScreen(U1);
+                login.setLocationRelativeTo(null); 
+                login.setVisible(true);
+            }
+        });
         
     }
     
