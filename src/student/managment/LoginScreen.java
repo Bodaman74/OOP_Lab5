@@ -19,10 +19,16 @@ public class LoginScreen extends javax.swing.JFrame {
      * Creates new form LoginScreen
      */
     
-    private  User User;
+    private  User user;
     public LoginScreen(User user) {
-        this.User =user;
+        this.user =user;
+        initComponents();
         
+    }
+
+    private LoginScreen() {
+         initComponents();
+      
     }
 
     /**
@@ -175,6 +181,9 @@ public class LoginScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please fill out username");
         else if(jpassword.getText().equals(""))
             JOptionPane.showMessageDialog(null,"Please fill out password");
+       else if(!(jusername.getText().equals("user.getUserName()")&&jpassword.getText().equals("user.getPassword()")))
+             JOptionPane.showMessageDialog(null,"Wrong username or password.","Message", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_bloginActionPerformed
    
     /**
