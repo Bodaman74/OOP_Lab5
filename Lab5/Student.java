@@ -15,7 +15,6 @@ public class Student {
     private String gender;
     private String department;
     private double gpa;
-    
     // Constructor
     public Student(int id, String name, int age, String gender, String department, double gpa) {
         this.id = id;
@@ -26,16 +25,15 @@ public class Student {
         this.gpa = gpa;
     }
     
-    //  getters 
+    // Getters
     public int getId() { return id; }
     public String getName() { return name; }
     public int getAge() { return age; }
     public String getGender() { return gender; }
     public String getDepartment() { return department; }
     public double getGpa() { return gpa; }
-    
-    // for displaying 
+    // A method to show the student details as a string 
     public String toString() {
-        return "ID: " + id + ", Name: " + name + ", GPA: " + gpa;
+        return id + "," + name + "," + age + "," + gender + "," + department + "," + gpa;
     }
 }
