@@ -19,17 +19,14 @@ public class LoginScreen extends javax.swing.JFrame {
      * Creates new form LoginScreen
      */
     
-    private  User user;
-    public LoginScreen(User user) {
-        this.user =user;
+    UserData data =new  UserData();
+    public LoginScreen() {
+        
         initComponents();
         
     }
 
-    private LoginScreen() {
-         initComponents();
-      
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -181,14 +178,15 @@ public class LoginScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Please fill out username");
         else if(jpassword.getText().equals(""))
             JOptionPane.showMessageDialog(null,"Please fill out password");
-       else if(!(jusername.getText().equals(user.getUserName()) && jpassword.getText().equals(user.getPassword())))
-             JOptionPane.showMessageDialog(null,"Wrong username or password.","Message", JOptionPane.ERROR_MESSAGE);//for sign X
-       else   {
+       else if( data.validation(jusername.getText(),jpassword.getText() )){
            Dashboard dashboard = new Dashboard();
         dashboard.setVisible(true);
         
-        
         this.dispose();// close login
+       }
+             
+       else   {
+           JOptionPane.showMessageDialog(null,"Wrong username or password.","Message", JOptionPane.ERROR_MESSAGE);//for sign X
        }
     }//GEN-LAST:event_bloginActionPerformed
    
@@ -220,10 +218,10 @@ public class LoginScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        User U1 =new User("admin","1234abc");
+       // User U1 =new User("admin","1234abc");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginScreen(U1).setVisible(true);
+                new LoginScreen().setVisible(true);
             }
         });
     }
