@@ -19,9 +19,7 @@ public class StudentManagment {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
  
-               LoginScreen login = new LoginScreen(U1);
-                login.setLocationRelativeTo(null); 
-                login.setVisible(true);
+                new LoginScreen(U1).setVisible(true);
             }
         });
         
