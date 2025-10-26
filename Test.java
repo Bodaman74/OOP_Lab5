@@ -7,7 +7,6 @@ public class Test {
     public static void main(String[] args) {
         StudentManager manager = new StudentManager();
 
-        // تجربة إدخال طالب جديد
         boolean added = manager.addStudent(1, "Marawan Hamada", 19, "Male", "Computer Engineering", 3.8);
 
         if (added) {
@@ -17,3 +16,4 @@ public class Test {
         }
     }
 }
+
