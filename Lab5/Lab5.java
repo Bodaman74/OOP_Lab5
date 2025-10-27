@@ -1,27 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package lab5;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author PCV
- */
 public class Lab5 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-       
-        
-        ViewStudentsPanel frame = new ViewStudentsPanel();
+
+        StudentDataManager sManager = new StudentDataManager();
+
+        // Only add if the file is empty
+        if (sManager.getAllStudents().isEmpty()) {
+            sManager.insertRecord(new Student(1, "Mohamed Ahmed", "Male", 20, "CCE", 3.5));
+            sManager.insertRecord(new Student(6, "Omar shaaban", "Male", 23, "CCE", 3.5));
+            sManager.insertRecord(new Student(8, "Salma ali", "Female", 18, "MRE", 3.2));
+            sManager.insertRecord(new Student(3, "Menna yasser", "Female", 22, "CEE", 3.9));
+            
+            sManager.saveToFile();
+        }
+        MainFrame frame = new MainFrame();
         frame.setVisible(true);
     }
-    
+
 }

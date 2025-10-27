@@ -1,41 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package lab5;
-
-/**
- *
- * @author PCV
- */
 public class Student {
     private int id;
     private String name;
-    private int age;
     private String gender;
+    private int age;
     private String department;
     private double gpa;
-    
     // Constructor
-    public Student(int id, String name, int age, String gender, String department, double gpa) {
+    public Student(int id, String name, String gender, int age, String department, double gpa) {
         this.id = id;
         this.name = name;
-        this.age = age;
         this.gender = gender;
+        this.age = age;
         this.department = department;
         this.gpa = gpa;
     }
+
+   // Setters    
+    public void setId(int id) {this.id = id;}
+    public void setName(String name) {this.name = name;}
+    public void setGender(String gender) { this.gender = gender;}
+    public void setAge(int age) {this.age = age;}
+    public void setDepartment(String department) {this.department = department;}
+    public void setGpa(double gpa) {this.gpa = gpa;}
     
-    //  getters 
+    // Getters
     public int getId() { return id; }
     public String getName() { return name; }
-    public int getAge() { return age; }
     public String getGender() { return gender; }
+    public int getAge() { return age; }
     public String getDepartment() { return department; }
     public double getGpa() { return gpa; }
     
-    // for displaying 
-    public String toString() {
-        return "ID: " + id + ", Name: " + name + ", GPA: " + gpa;
+    public String lineRepresentation() {
+        return id + "," + name + "," + gender + "," + age + "," + department + "," + gpa;
+    }
+    
+    //Key
+    public String getSearchKey() {
+         return String.valueOf(id);
+   //      return id + "," + name+ "," + gender + "," + age +","+  department+ "," + gpa;
+    }
+    
+    @Override
+    public String toString(){
+        return lineRepresentation();
     }
 }
