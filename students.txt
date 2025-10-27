@@ -1,0 +1,5 @@
+101,Ahmed Mohamed,20,Male,Computer Engineering,3.4
+102,Mariam Ali,21,Female,Electrical Engineering,3.8
+103,Omar Hassan,22,Male,Mechanical Engineering,3.2
+104,Fatma Mahmoud,19,Female,Computer Engineering,3.9
+105,Khaled Ibrahim,20,Male,Communication Engineering,3.1
