@@ -41,7 +41,7 @@ public abstract class FilesOperations<T> {
         }
     }
 
-    public void saveToFile() {//append or overwrite?
+    public void saveToFile() {//overwrites
         try {
             PrintWriter writer = new PrintWriter(new FileWriter(filename));
             for (int i = 0; i < records.size(); i++) {
@@ -50,6 +50,7 @@ public abstract class FilesOperations<T> {
             }
             writer.close();
         } catch (Exception e) {
+            
             System.out.println("Error saving to " + filename);
         }
     }
@@ -77,6 +78,7 @@ public abstract class FilesOperations<T> {
     public void insertRecord(T record) {
         if (!contains(getSearchKey(record))) {
             records.add(record);
+            saveToFile();
         }
     }
     

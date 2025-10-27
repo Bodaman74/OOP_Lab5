@@ -38,11 +38,10 @@ public class Student {
     //Key
     public String getSearchKey() {
          return String.valueOf(id);
-   //      return id + "," + name+ "," + gender + "," + age +","+  department+ "," + gpa;
     }
     
     @Override
     public String toString(){
-        return lineRepresentation();
+        return "ID: " + id + ", Name: " + name + ", Gender: " + gender + ", Age: " + age + ", Department: " + department + ", GPA: " + gpa;
     }
 }

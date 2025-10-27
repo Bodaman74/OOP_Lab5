@@ -86,6 +86,7 @@ public class ViewStudentsPanel extends JPanel {
     
     private void showAllStudents() {
         clearTable();
+        dataManager.readFromFile();
         ArrayList<Student> students = dataManager.getAllStudents();
         
         if (students.isEmpty()) {
@@ -121,6 +122,7 @@ public class ViewStudentsPanel extends JPanel {
         }
         
         clearTable();
+        dataManager.readFromFile();
         ArrayList<Student> results = dataManager.search(searchText);
         
         for (Student s : results) {
