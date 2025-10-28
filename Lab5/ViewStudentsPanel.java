@@ -1,3 +1,6 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -21,6 +24,7 @@ public class ViewStudentsPanel extends JPanel {
     private DefaultTableModel tableModel;
     private JTextField searchField;
     private JLabel statusLabel;
+
     
     public ViewStudentsPanel() {
         dataManager = new StudentDataManager();
@@ -35,6 +39,7 @@ public class ViewStudentsPanel extends JPanel {
         JLabel titleLabel = new JLabel("View and Search Students", JLabel.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         add(titleLabel, BorderLayout.NORTH);
+//        studentTable.setSize(300,300);
         
         // Center panel with search and table
         JPanel centerPanel = new JPanel(new BorderLayout());
@@ -71,6 +76,8 @@ public class ViewStudentsPanel extends JPanel {
         studentTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         studentTable.getTableHeader().setReorderingAllowed(false);
         
+//        UpdateDelete ud = new UpdateDelete(studentTable,dataManager);
+        
         JScrollPane scrollPane = new JScrollPane(studentTable);
         centerPanel.add(scrollPane, BorderLayout.CENTER);
         
@@ -85,6 +92,7 @@ public class ViewStudentsPanel extends JPanel {
         // button actions
         searchBtn.addActionListener(e -> searchStudents());
         viewAllBtn.addActionListener(e -> showAllStudents());
+        sortIdBtn.addActionListener(e -> sortById()); 
         sortIdBtn.addActionListener(e -> sortById());
         sortNameBtn.addActionListener(e -> sortByName());
         
@@ -94,6 +102,7 @@ public class ViewStudentsPanel extends JPanel {
     
     private void showAllStudents() {
         clearTable();
+        dataManager.readFromFile();
         ArrayList<Student> students = dataManager.getAllStudents();
         
         if (students.isEmpty()) {
@@ -129,6 +138,8 @@ public class ViewStudentsPanel extends JPanel {
         }
         
         clearTable();
+        dataManager.readFromFile();
+        ArrayList<Student> results = dataManager.search(searchText);
         ArrayList<Student> results = dataManager.searchStudents(searchText);
         
         for (Student s : results) {
@@ -174,4 +185,5 @@ public class ViewStudentsPanel extends JPanel {
     public void refreshData() {
         showAllStudents();
     }
+}
 }
