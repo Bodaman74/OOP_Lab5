@@ -1,6 +1,21 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package lab5;
+
+/**
+ *
+ * @author PCV
+ */
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ViewStudentsPanel extends JPanel {
@@ -78,6 +93,7 @@ public class ViewStudentsPanel extends JPanel {
         searchBtn.addActionListener(e -> searchStudents());
         viewAllBtn.addActionListener(e -> showAllStudents());
         sortIdBtn.addActionListener(e -> sortById()); 
+        sortIdBtn.addActionListener(e -> sortById());
         sortNameBtn.addActionListener(e -> sortByName());
         
         // Enter key for search
@@ -124,6 +140,7 @@ public class ViewStudentsPanel extends JPanel {
         clearTable();
         dataManager.readFromFile();
         ArrayList<Student> results = dataManager.search(searchText);
+        ArrayList<Student> results = dataManager.searchStudents(searchText);
         
         for (Student s : results) {
             Object[] row = {
@@ -168,4 +185,5 @@ public class ViewStudentsPanel extends JPanel {
     public void refreshData() {
         showAllStudents();
     }
+}
 }

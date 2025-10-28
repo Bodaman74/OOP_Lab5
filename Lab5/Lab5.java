@@ -17,6 +17,8 @@ public class Lab5 {
             
             sManager.saveToFile();
         }
+        // TODO code application logic here
+
         MainFrame frame = new MainFrame();
         frame.setVisible(true);
     }

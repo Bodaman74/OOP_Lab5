@@ -43,5 +43,8 @@ public class Student {
     @Override
     public String toString(){
         return "ID: " + id + ", Name: " + name + ", Gender: " + gender + ", Age: " + age + ", Department: " + department + ", GPA: " + gpa;
+    // A method to show the student details as a string 
+    public String toString() {
+        return id + "," + name + "," + age + "," + gender + "," + department + "," + gpa;
     }
 }
