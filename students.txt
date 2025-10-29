@@ -1,0 +1,12 @@
+112,Abdelrahman,22,Male,CSE,3.27
+101,Ahmed Mohamed,20,Male,Computer Engineering,3.4
+104,Fatma Mahmoud,19,Female,Computer Engineering,3.9
+105,Khaled Ibrahim,20,Male,Communication Engineering,3.1
+102,Mariam Ali,21,Female,Electrical Engineering,3.8
+103,Omar Hassan,22,Male,Mechanical Engineering,3.2
+100,Omar Mohamed,22,Male,Mechatronics Engineering,3.7
+3123,mo7sen,23,Male,CCE,4.0
+144,babab bbbb,27,Male,cce,2.7
+140,bbbb jasdasj,24,Male,2131,3.5
+166,abdba basbdb,23,Male,cse,3.4
+177,aasdsd sdsdsd,23,Male,cce,3.6
